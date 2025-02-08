@@ -5,12 +5,12 @@
     </head>
     <body>
         <h1>Take Notes Here!</h1>
-        <a href=src/login.php>
+        <a href=login.php>
             login
         </a>
         <br>
         <br>
-        <a href=src/register.php>
+        <a href=register.php>
             register
         </a>
     </body>
