@@ -1,45 +1,4 @@
-sudhanshu@sudhanshu-pc Personal-projects]$ mariadb -u sudhanshu -p
-Enter password: 
-Welcome to the MariaDB monitor.  Commands end with ; or \g.
-Your MariaDB connection id is 3
-Server version: 11.6.2-MariaDB Arch Linux
-
-Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
-
-Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
-
-MariaDB [(none)]> USE note_taking
-Database changed
-MariaDB [note_taking]> CREATE TABLE users(
-    -> id INT AUTO_INCREMENT PRIMARY KEY,
-    -> username VARCHAR(255) UNIQUE NOT NULL,
-    -> password VARCHAR(255) NOT NULL,
-    -> created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-    -> );
-Query OK, 0 rows affected (0.019 sec)
-
-MariaDB [note_taking]> SHOW DATABASES
-    -> ;
-+--------------------+
-| Database           |
-+--------------------+
-| information_schema |
-| mysql              |
-| note_taking        |
-| performance_schema |
-| sys                |
-+--------------------+
-5 rows in set (0.000 sec)
-
-MariaDB [note_taking]> SHOW TABLES;
-+-----------------------+
-| Tables_in_note_taking |
-+-----------------------+
-| users                 |
-+-----------------------+
-1 row in set (0.000 sec)
-
-MariaDB [note_taking]> SHOW FIELDS FROM users;
+users
 +------------+--------------+------+-----+---------------------+----------------+
 | Field      | Type         | Null | Key | Default             | Extra          |
 +------------+--------------+------+-----+---------------------+----------------+
@@ -48,8 +7,16 @@ MariaDB [note_taking]> SHOW FIELDS FROM users;
 | password   | varchar(255) | NO   |     | NULL                |                |
 | created_at | timestamp    | YES  |     | current_timestamp() |                |
 +------------+--------------+------+-----+---------------------+----------------+
-4 rows in set (0.001 sec)
 
-MariaDB [note_taking]> EXIT
-Bye
-[sudhanshu@sudhanshu-pc Personal-projects]$ 
+MariaDB [note_taking]> SHOW FIELDS FROM userdata;
++------------+--------------+------+-----+---------------------+-------------------------------+
+| Field      | Type         | Null | Key | Default             | Extra                         |
++------------+--------------+------+-----+---------------------+-------------------------------+
+| id         | int(11)      | NO   | PRI | NULL                | auto_increment                |
+| user_id    | int(11)      | NO   | MUL | NULL                |                               |
+| title      | varchar(255) | NO   |     | NULL                |                               |
+| content    | text         | NO   |     | NULL                |                               |
+| created_at | timestamp    | YES  |     | current_timestamp() |                               |
+| updated_at | timestamp    | YES  |     | current_timestamp() | on update current_timestamp() |
++------------+--------------+------+-----+---------------------+-------------------------------+
+6 rows in set (0.001 sec)
